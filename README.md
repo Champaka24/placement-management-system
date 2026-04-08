@@ -4,22 +4,22 @@ A comprehensive web-based system for managing campus placements built with Flask
 
 ## Features
 
-### Core Features (✅ Implemented)
-- ✅ Student Registration & Login
-- ✅ Admin Login & Management
-- ✅ Company Management (Add, View)
-- ✅ Eligibility Check System
-- ✅ Job Applications
-- ✅ Application Status Tracking
-- ✅ Student Dashboard & Analytics
-- ✅ Admin Dashboard & Analytics
+### Core Features ( Implemented)
+- 1.Student Registration & Login
+- 2.Admin Login & Management
+- 3.Company Management (Add, View)
+- 4.Eligibility Check System
+- 5.Job Applications
+- 6.Application Status Tracking
+- 7.Student Dashboard & Analytics
+- 8.Admin Dashboard & Analytics
 
 ### Optional Features (Can be added)
-- 📋 Search functionality for students and companies
-- 📊 Dashboard statistics and reports
-- 📄 Resume upload system
-- 📥 Export to CSV functionality
-- 🔍 Advanced filtering options
+- earch functionality for students and companies
+- Dashboard statistics and reports
+- Resume upload system
+- Export to CSV functionality
+- Advanced filtering options
 
 ## Project Structure
 
@@ -218,4 +218,4 @@ For issues or questions, please refer to the code comments or create an issue.
 
 ---
 
-**Happy Coding!** 🚀
+
