@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block title %}Student Details - Placement Management System{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <a href="{{ url_for('admin.view_students') }}" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left me-2"></i>Back to Students
+    </a>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-lg-6">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-user-circle fa-2x text-primary me-3"></i>
+                    <h5 class="card-title mb-0">Personal Information</h5>
+                </div>
+                <hr>
+                <table class="table table-borderless">
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-id-card me-2"></i>USN:</td>
+                        <td><span class="badge bg-light text-dark">{{ student.usn }}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-user me-2"></i>Name:</td>
+                        <td><strong>{{ student.name }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-envelope me-2"></i>Email:</td>
+                        <td><a href="mailto:{{ student.email }}">{{ student.email }}</a></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-phone me-2"></i>Phone:</td>
+                        <td>{{ student.phone }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-graduation-cap fa-2x text-info me-3"></i>
+                    <h5 class="card-title mb-0">Academic Information</h5>
+                </div>
+                <hr>
+                <table class="table table-borderless">
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-graduation-cap me-2"></i>Branch:</td>
+                        <td><span class="badge bg-info text-dark">{{ student.branch }}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-book me-2"></i>Semester:</td>
+                        <td><span class="badge bg-warning text-dark">{{ student.semester }}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-sigma me-2"></i>CGPA:</td>
+                        <td>
+                            <span class="badge" style="background-color: {% if student.cgpa >= 3.5 %}#28a745{% else %}#ffc107{% endif %};">
+                                {{ student.cgpa }}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-muted"><i class="fas fa-code me-2"></i>Skills:</td>
+                        <td>
+                            {% if student.skills %}
+                                <small class="text-muted">{{ student.skills }}</small>
+                            {% else %}
+                                <small class="text-muted text-secondary">Not provided</small>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0 mt-4">
+    <div class="card-body">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-file-alt fa-2x text-primary me-3"></i>
+            <h5 class="card-title mb-0">Applications</h5>
+        </div>
+        <hr>
+
+        {% if applications %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th><i class="fas fa-building me-2"></i>Company</th>
+                        <th><i class="fas fa-briefcase me-2"></i>Role</th>
+                        <th><i class="fas fa-rupee-sign me-2"></i>Package</th>
+                        <th><i class="fas fa-hourglass-end me-2"></i>Status</th>
+                        <th><i class="fas fa-calendar me-2"></i>Applied On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for app in applications %}
+                    <tr class="border-bottom">
+                        <td><strong>{{ app.company.name }}</strong></td>
+                        <td><span class="badge bg-info text-dark">{{ app.company.role }}</span></td>
+                        <td><span class="badge bg-success">₹{{ app.company.package }} LPA</span></td>
+                        <td>
+                            {% if app.status == 'Selected' %}
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check-circle me-1"></i>{{ app.status }}
+                                </span>
+                            {% elif app.status == 'Shortlisted' %}
+                                <span class="badge bg-info">
+                                    <i class="fas fa-star me-1"></i>{{ app.status }}
+                                </span>
+                            {% elif app.status == 'Rejected' %}
+                                <span class="badge bg-danger">
+                                    <i class="fas fa-times-circle me-1"></i>{{ app.status }}
+                                </span>
+                            {% else %}
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-paper-plane me-1"></i>{{ app.status }}
+                                </span>
+                            {% endif %}
+                        </td>
+                        <td><small class="text-muted">{{ app.applied_at.strftime('%d-%m-%Y %H:%M') }}</small></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-info text-center py-4">
+            <i class="fas fa-inbox fa-3x mb-2 text-info"></i>
+            <p class="mb-0">No applications yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

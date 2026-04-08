@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Placement Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mb-5">
+    <div class="col-lg-10">
+        <div class="jumbotron text-white text-center">
+            <i class="fas fa-briefcase fa-5x mb-4 floating"></i>
+            <h1 class="display-3" style="color: white;">PlacementHub</h1>
+            <p class="lead mb-4">Your Gateway to Campus Placements</p>
+            <p class="fs-5 mb-4">Connect with top companies, track applications, and land your dream job!</p>
+            <hr class="my-4" style="background-color: rgba(255,255,255,0.3);">
+            <div class="gaps">
+                <a class="btn btn-light btn-lg me-3 mb-2" href="{{ url_for('auth.student_login') }}" role="button">
+                    <i class="fas fa-sign-in-alt me-2"></i>Student Login
+                </a>
+                <a class="btn btn-light btn-lg me-3 mb-2" href="{{ url_for('auth.student_register') }}" role="button">
+                    <i class="fas fa-user-plus me-2"></i>Register Now
+                </a>
+                <a class="btn btn-outline-light btn-lg mb-2" href="{{ url_for('auth.admin_login') }}" role="button">
+                    <i class="fas fa-lock me-2"></i>Admin Portal
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row mt-5 mb-5">
+    <div class="col-12 text-center mb-5">
+        <h2><i class="fas fa-star me-2"></i>Key Features</h2>
+        <p class="text-muted fs-5">Everything you need for successful placements</p>
+    </div>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-user-check fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Easy Registration</h5>
+                <p class="card-text text-muted">Sign up in seconds with your basic information and start browsing opportunities.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-search fa-3x text-success mb-3"></i>
+                <h5 class="card-title">Smart Matching</h5>
+                <p class="card-text text-muted">Our system automatically shows you companies that match your profile.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
+                <h5 class="card-title">Track Progress</h5>
+                <p class="card-text text-muted">Monitor your applications in real-time and get instant status updates.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-building fa-3x text-warning mb-3"></i>
+                <h5 class="card-title">Top Companies</h5>
+                <p class="card-text text-muted">Access opportunities from leading national and international companies.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-lock fa-3x text-danger mb-3"></i>
+                <h5 class="card-title">Secure & Safe</h5>
+                <p class="card-text text-muted">Your data is encrypted and protected with industry-standard security.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-headset fa-3x text-secondary mb-3"></i>
+                <h5 class="card-title">24/7 Support</h5>
+                <p class="card-text text-muted">Get help whenever you need it from our dedicated support team.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card bg-light border-0">
+            <div class="card-body text-center py-5">
+                <h3 class="mb-3">Ready to Start Your Placement Journey?</h3>
+                <p class="text-muted fs-5 mb-4">Join thousands of students who have successfully landed their dream jobs</p>
+                <a href="{{ url_for('auth.student_register') }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-rocket me-2"></i>Get Started Now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
